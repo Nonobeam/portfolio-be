@@ -6,6 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: ${ENV_DB_POOL_SIZE:2}
+      max-lifetime: ${ENV_DB_MAX_LIFETIME:270000} # 4.5 minutes
 
 app:
   ui-setting:
