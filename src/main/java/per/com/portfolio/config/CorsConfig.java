@@ -1,5 +1,6 @@
 package per.com.portfolio.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -9,6 +10,7 @@ import per.com.portfolio.config.settings.UISetting;
 
 import java.util.List;
 
+@Slf4j
 @Configuration
 public class CorsConfig {
   @Bean
@@ -18,6 +20,8 @@ public class CorsConfig {
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowCredentials(true);
+
+    log.info("CORS configuration initialized with allowed origins: {}", uiSetting.getAllowCors());
 
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
