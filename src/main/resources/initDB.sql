@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS skills (
+id UUID PRIMARY KEY,
+name VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS certifications (
+id UUID PRIMARY KEY,
+name VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS headlines (
+id UUID PRIMARY KEY,
+content VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE projects (
+id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+title VARCHAR(255) NOT NULL,
+image VARCHAR(255),
+link_github VARCHAR(255),
+link_online VARCHAR(255),
+description TEXT
+);
+
+CREATE TABLE project_tech_stack (
+project_id UUID NOT NULL,
+tech VARCHAR(100) NOT NULL
+);
